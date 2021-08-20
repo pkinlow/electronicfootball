@@ -1,0 +1,234 @@
+#root {
+  clear: both;
+  display: block;
+  height: 200px;
+}
+
+#root .football {
+  display: block;
+  margin: 0 auto;
+}
+
+.field {
+  width: 650px;
+  height: 150px
+}
+
+.yard {
+  float: left;
+  background: #006600;
+  border: 1px solid #000;
+  width: 50px;
+  height: 150px
+}
+
+.yard .segment {
+  text-align: center;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  font-size: 30px;
+  color: yellow;
+}
+
+.endzone {
+  float: left;
+  background: #006666;
+  border: 1px solid #000;
+  width: 75px;
+  height: 150px
+}
+.grid-container {
+  margin: 0 auto;
+  width: 513px;
+  background: #008800;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.gridfield {
+  margin: 0px auto;
+  position: relative;
+  display: grid;
+  max-width: 413px;
+  background-color: #999;
+  border: 5px solid #fff;
+  grid-column-gap: 3px;
+  grid-template-columns: 20px repeat(10, 34px) 20px;
+  grid-template-rows: 34px 34px 34px;
+}
+
+.gridfield::before {
+  position: absolute;
+  left: -27px;
+  top: 35px;
+  content: " ";
+  width: 27px;
+  height: 27px;
+  transform: perspective(60px) rotateY(45deg);
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  background-image: linear-gradient(#fff, #fff);
+  background-repeat: no-repeat;
+  background-size: 3px;
+  background-position: 58% top;
+}
+
+.gridfield::after {
+  position: absolute;
+  right: -27px;
+  top: 35px;
+  content: " ";
+  width: 27px;
+  height: 27px;
+  transform: perspective(60px) rotateY(-45deg);
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  background-image: linear-gradient(#fff, #fff);
+  background-repeat: no-repeat;
+  background-size: 3px;
+  background-position: 42% top;
+}
+
+.grassfield {
+  background-color: #222;
+  line-height: 34px;
+  text-align: center;
+}
+
+/* See Glow https://codepen.io/pkinlow-the-scripter/pen/oNNXBeN?editors=1100 */
+.subject {
+  font-size: 20px;
+  color: #ff0000;
+  text-shadow: 0 0 10px #cc0000, 0 0 20px #cc0000, 0 0 40px #cc0000;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    color: #ee0000;
+    text-shadow: 0 0 10px #cc0000, 0 0 20px #cc0000, 0 0 40px #990000, 0 0 80px #990000;
+  }
+  to {
+    color: #ff0000;
+    text-shadow: 0 0 5px #cc0000, 0 0 10px #cc0000, 0 0 20px #990000, 0 0 40px #990000;
+  }
+}
+
+.subject.offense {
+  font-weight: 700;
+  color: #e24c00;
+  animation: glowbright 1.5s ease-in-out infinite alternate;
+}
+
+.subject.defense {
+  font-weight: normal;
+}
+
+@keyframes glowbright {
+  from {
+    color: #f35d00;
+    text-shadow: 0 0 10px #cc0000, 0 0 20px #cc0000, 0 0 40px #990000, 0 0 80px #990000;
+  }
+  to {
+    color: #e24c00;
+    text-shadow: 0 0 5px #cc0000, 0 0 10px #cc0000, 0 0 20px #990000, 0 0 40px #990000;
+  }
+}
+
+.topfield {
+  background-image: linear-gradient(#999, #999), linear-gradient(#999, #999);
+  background-repeat: no-repeat, no-repeat;
+  background-size: 5px 3px, 5px 3px;
+  background-position: bottom left, bottom right;
+}
+
+.middlefield {
+  /* Nothing yet */
+}
+
+.bottomfield {
+  background-image: linear-gradient(#999, #999), linear-gradient(#999, #999);
+  background-repeat: no-repeat, no-repeat;
+  background-size: 5px 3px, 5px 3px;
+  background-position: top left, top right;
+}
+
+.grassfield:hover {
+  /* background-color: teal; */
+}
+
+.endzonehome {
+  background-color: #0066bb;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+
+.endzoneaway {
+  background-color: #0066bb;
+  grid-column-start: 12;
+  grid-column-end: 13;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+
+
+/* .contain {
+  transform-style: preserve-3d;
+  perspective: 800px
+} */
+
+.goalpost {
+  border-top: solid black 4px;
+  border-bottom: solid black 4px;
+  background-image: linear-gradient(#000, #000);
+  background-repeat: no-repeat;
+  background-size: 4px;
+  background-position: 50% top;
+  transform: translate(10px, 10px) perspective(150px) rotateY(45deg);
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+  perspective: 600px
+}
+
+
+.gamebutton {
+  display: inline-block;
+  margin: 0 10px;
+  border-radius: 8px;
+  /* box-shadow: 0 8px 0 #c5376d, 0 15px 20px rgba(0, 0, 0, .35); */
+  box-shadow: 0 4px 0 #660000, 0 15px 20px rgba(0, 0, 0, .35);
+  transition: box-shadow .1s ease-in-out;
+  font-size: 20px;
+  color: #fff;
+}
+
+.gamebutton span {
+  display: inline-block;
+  padding: 5px 7px;
+  background-color: #990000;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(hsla(338, 90%, 80%, .8)), to(hsla(338, 90%, 70%, .2)));
+  background-image: -webkit-linear-gradient(hsla(338, 90%, 80%, .8), hsla(338, 90%, 70%, .2));
+  background-image: -moz-linear-gradient(hsla(338, 90%, 80%, .8), hsla(338, 90%, 70%, .2));
+  background-image: -o-linear-gradient(hsla(338, 90%, 80%, .8), hsla(338, 90%, 70%, .2));
+  border-radius: 8px;
+  box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
+  font-family: 'Pacifico', Arial, sans-serif;
+  line-height: 1;
+  text-shadow: 0 -1px 1px rgba(175, 49, 95, .7);
+  transition: background-color .2s ease-in-out, transform .1s ease-in-out;
+}
+
+.gamebutton:hover span {
+  /* background-color: #ec6a9c; */
+  text-shadow: 0 -1px 1px rgba(175, 49, 95, .9), 0 0 5px rgba(255, 255, 255, .8);
+}
+
+.gamebutton:active, #button:focus {
+  box-shadow: 0 4px 0 #c5376d, 0 12px 10px rgba(0, 0, 0, .3);
+}
+
+.gamebutton:active span {
+  transform: translate(0, 2px);
+}
